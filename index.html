@@ -1,4 +1,22 @@
 <header>
+	<script type="text/javascript">
+		(function (doc, win) {
+		var docEl = doc.documentElement
+		var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+		var recalc = function () {
+		var clientWidth = docEl.clientWidth
+		if (!clientWidth) return
+		if (clientWidth >= 750) {
+		docEl.style.fontSize = '100px'
+		} else {
+		docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+		}
+		}
+		if (!doc.addEventListener) return
+		win.addEventListener(resizeEvt, recalc, false)
+		doc.addEventListener('DOMContentLoaded', recalc, false)
+		})(document, window)
+	</script>
 	<style type="text/css">
 		
         * {
@@ -21,7 +39,7 @@
             padding: 0 .4rem;
             margin-bottom: .4rem;
         }
-        p{
+        p,li {
             font-size: .4rem;
             padding: 0 .4rem;
             margin-bottom: .4rem;
@@ -29,10 +47,9 @@
         .footer{
             padding-bottom: 2rem;
         }
-   
 	</style>
 </header>
-
+<body style="overflow: hidden auto; width: 400px; height: 893px;">
 <div data-note-content="" class="show-content" style="margin: 10px;">
           <div class="show-content-free">
             <h1>隐私及免责声明</h1>
@@ -65,3 +82,4 @@
 
           </div>
         </div>
+    </body>
